@@ -26,7 +26,7 @@ Click on a box in the diagram, or the component name below, to see more details 
 <area shape=rect coords="20,45,182,90" href="#function">
 <area shape=rect coords="56,261,200,306" href="#science_services">
 </map>
-<img border=0 width="500px" src="https://raw.githubusercontent.com/kbase/nextgen/master/diagrams/arch-overview.jpg" usemap="#TableOfContents">
+<img border=0 width="500px" src="img/arch-overview.jpg" usemap="#TableOfContents">
 
 
 <a id="user_interfaces"></a>
@@ -38,7 +38,7 @@ In terms of implementation and deployment, KBase has two major user interface co
 The Narrative UI runs on top of the IPython notebook.
 The diagram below shows how its deployment relates to the back-end components in KBase. Each Narrative UI running in a user's browser connects through the Internet using the IPython protocols to a running Python kernel. Each of these kernels is running inside a Docker container that includes the KBase interfaces and runtimes. To properly handle multiple users each with multiple Narrative UIs, the [nginx](https://www.nginx.com/) load balancer is used to route the traffic to and from the containers. Custom Lua extensions to Nginx are used to spin up new Docker containers on demand. 
 
-<img src="https://raw.githubusercontent.com/kbase/nextgen/master/diagrams/narrative-arch.png" width=500></img>
+<img src="img/narrative-arch.png" width=500></img>
 <br/>
 Narrative deployment architecture
 
@@ -62,7 +62,7 @@ These two components both use the [Postal message bus](https://github.com/postal
 The User dashboard also communicates with the Workspace service to get the list of running jobs, and with a separate dashboard/metrics component to show user metrics that are periodically aggregated from the KBase logs.
 
 
-<img src="https://raw.githubusercontent.com/kbase/nextgen/master/diagrams/functional-site.png" width="500px"></img><br/>KBase functional site
+<img src="img/functional-site.png" width="500px"></img><br/>KBase functional site
 
 <div onclick='window.open("#top","_self")' style='cursor: pointer'><span>&#8593;</span> Back to top</div>
 
@@ -70,7 +70,7 @@ The User dashboard also communicates with the Workspace service to get the list 
 ### Search
 KBase "search" builds on a separate database infrastructure from the workspace and "blob" store (Shock). Instead, it uses Solr to index data for full-text style search. The full pipeline is shown in the figure below.  In the figure, we show a pipeline that exports data from the KBase "Central Store" database. This is currently being augmented with a pipeline that imports data from NCBI and other sources. The "Shock" section of the diagram shows how the raw sequence data is stored, with a separate UUID that is tracked in a MongoDB server, and then a service called the "Handle manager" used to mediate permissions between Shock and the Workspace. The Workspace objects (which may link to Shock objects) are added into the pipeline for indexing with Solr. Finally the Search API provides an interface to querying Solr for records that, ultimately, must refer to Workspace objects that can be included in KBase Narratives.
 
-<img src="https://raw.githubusercontent.com/kbase/nextgen/master/diagrams/search-arch.png" width=500></img><br/>Search architecture
+<img src="img/search-arch.png" width=500></img><br/>Search architecture
 
 <div onclick='window.open("#top","_self")' style='cursor: pointer'><span>&#8593;</span> Back to top</div>
 
@@ -87,7 +87,7 @@ One of the most important of these is the "Transformation Service", which perfor
 
 
 
-<img src="https://raw.githubusercontent.com/kbase/nextgen/master/diagrams/transform-arch.png" width=700></img><br/>
+<img src="img/transform-arch.png" width=700></img><br/>
 Transformation Service architecture
 
 <a id="upload_download">&nbsp;</a>
